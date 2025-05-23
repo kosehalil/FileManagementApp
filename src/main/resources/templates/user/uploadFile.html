@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::Layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File-FileApp</title>
+</head>
+<body>
+<section>
+    <div class="container p-5 mt-3">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card card-sh">
+                    <div class="card-header text-center">
+                        <p class="fs-4">Dosya Yükle</p>
+
+                        <th:block th:if="${session.successMessage}">
+                            <p class="text-success fw-bold">[[${session.successMessage}]]</p>
+                            <th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+                        </th:block>
+
+                        <th:block th:if="${session.errorMessage}">
+                            <p class="text-danger fw-bold">[[${session.errorMessage}]]</p>
+                            <th:block th:text="${@commonServiceImpl.removeSessionMessage()}"></th:block>
+                        </th:block>
+
+                    </div>
+                    <div class="card-body">
+                        <form action="/user/saveFile" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label>Dosya Adı</label><input type="text" name="title"
+                                                               class="form-control">
+
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Dosya Açıklaması</label>
+                                <textarea rows="3" cols=""	class="form-control" name="description"></textarea>
+                            </div>
+
+                            <div class="mb-3 col">
+                                <label>Yüklemek İstediginiz Dosyayı Seçin</label>
+                                <input type="file" name="file" class="form-control" accept=".png,.jpg,.jpeg,.pdf,.txt,.pptx,.docx">
+                            </div>
+
+                            <button class="btn btn-primary col-md-12">Yükle</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
