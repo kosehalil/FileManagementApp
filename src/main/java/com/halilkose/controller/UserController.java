@@ -97,6 +97,7 @@ public class UserController {
         return "redirect:/user/viewFile";
     }
 
+
     @GetMapping("/userList")
     public String viewUsers(Model model) {
         model.addAttribute("users", userService.getAllUsers());
