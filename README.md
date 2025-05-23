@@ -56,7 +56,7 @@ spring.jpa.properties.hibernate.format_sql=true
 
 # Uygulamanin Calistirilmasi
 
-git clone https://github.com/kosehalil/FileManagement.git
+git clone https://github.com/kosehalil/FileManagementApp.git
 cd FileManagementApp
 ./mvnw spring-boot:run
 
